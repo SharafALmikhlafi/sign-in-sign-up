@@ -1,4 +1,5 @@
 import Textfield from "@/components/Textfield";
+import MainButton from "@/components/MainButton";
 import Image from "next/image";
 export default function Login() {
   return (
@@ -12,16 +13,13 @@ export default function Login() {
           <div className="text-center text-3xl font-bold mt-10 mb-10">
             <h2>Login</h2>
           </div>
-
-              <Textfield kind="text" holder="Enter your username"/>
-            <div className="mt-10 mb-10">
-              <Textfield kind="password" holder="Enter your password"/>
+          <Textfield kind="text" holder="Enter your username" />
+          <div className="mt-10 mb-10">
+            <Textfield kind="password" holder="Enter your password" />
           </div>
-          <div className="w-full h-10 bg-[#1d2931] text-white rounded-sm">
-            <button className="w-full h-10">Login</button>
-          </div>
+          <MainButton text="Log in" />
           <div className="mt-2">
-            <p>sign up</p>
+            <p>Log in</p>
           </div>
         </div>
       </div>
