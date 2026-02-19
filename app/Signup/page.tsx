@@ -1,7 +1,7 @@
 import Textfield from "@/components/Textfield";
 import MainButton from "@/components/MainButton";
 import Image from "next/image";
-export default function Login() {
+export default function Signup() {
   return (
     <>
       <div className="flex justify-center items-center min-h-screen ">
@@ -13,13 +13,19 @@ export default function Login() {
           <div className="text-center text-3xl font-bold mt-10 mb-10">
             <h2>Login</h2>
           </div>
-          <Textfield kind="text" holder="Enter your username" />
+          <Textfield kind="text" holder="Enter your name" />
+          <div className="mt-10 mb-10">
+            <Textfield kind="text" holder="Enter your username" />
+          </div>
+          <div className="mt-10 mb-10">
+            <Textfield kind="text" holder="Enter your Email" />
+          </div>
           <div className="mt-10 mb-10">
             <Textfield kind="password" holder="Enter your password" />
           </div>
-          <MainButton text="Log in" />
+          <MainButton text="Sign up" />
           <div className="mt-2">
-            <p>Sign up</p>
+            <p>Log in</p>
           </div>
         </div>
       </div>

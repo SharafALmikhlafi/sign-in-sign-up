@@ -1,9 +1,10 @@
 import Login from "./Login/page";
+import Signup from "./Signup/page";
 
 export default function Home() {
   return (
     <div>
-      <Login/>
+      <Signup/>
     </div>
   );
 }

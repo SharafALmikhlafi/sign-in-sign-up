@@ -10,7 +10,7 @@ export default function Textfield({kind, holder }: TextfieldProp) {
         <input
           type={kind}
           placeholder={holder}
-          className="border-b-2 w-full h-8"
+          className="border-b-2 w-full h-8 p-2"
         />
       </div>
     </>
