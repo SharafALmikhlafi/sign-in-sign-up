@@ -1,17 +1,17 @@
 interface TextfieldProp{
-    kind: string;
+    type: string;
     holder: string;
     name?: string;
     value?: string;
     onchange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function Textfield({kind, holder, name, value, onchange }: TextfieldProp) {
+export default function Textfield({type, holder, name, value, onchange }: TextfieldProp) {
   return (
     <>
       <div className="mt-10 mb-10">
         <input
-          type={kind}
+          type={type}
           placeholder={holder}
           name={name}
           value={value}

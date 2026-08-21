@@ -1,8 +1,21 @@
-'use client';
+"use client";
 import Textfield from "@/components/Textfield";
 import MainButton from "@/components/MainButton";
 import Image from "next/image";
+import { ChangeEvent, useState } from "react";
+
 export default function Login() {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const  handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <>
       <div className="flex justify-center items-center min-h-screen ">
@@ -14,9 +27,25 @@ export default function Login() {
           <div className="text-center text-3xl font-bold mt-10 mb-10">
             <h2>Login</h2>
           </div>
-          <form>
-            <Textfield kind="text" holder="Enter your username" />
-            <Textfield kind="password" holder="Enter your password" />
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
+            <Textfield
+              type="text"
+              holder="Enter your email"
+              name="email"
+              value={user.email}
+              onchange={handleChange}
+            />
+            <Textfield
+              type="password"
+              holder="Enter your password"
+              name="password"
+              value={user.password}
+              onchange={handleChange}
+            />
             <MainButton text="Log in" />
           </form>
           <div className="mt-10 mb-10"></div>
