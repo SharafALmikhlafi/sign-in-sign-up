@@ -15,9 +15,17 @@ export default function Signup() {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUser({...user, [e.target.name]: e.target.value});
   }
-   const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
+   const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
    e.preventDefault();
-   console.log(user);
+   const response = await fetch("http://localhost:5000/api/auth/register",{
+    method: "POST",
+    headers: {
+     "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
+   });
+   const data = await response.json();
+   console.log(data);
  }
     return (
       <>
