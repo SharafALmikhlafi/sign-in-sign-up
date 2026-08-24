@@ -4,6 +4,7 @@ import MainButton from "@/components/MainButton";
 import { ChangeEvent, useState, SubmitEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import validateSignup from "@/schemas/signup/page";
 export default function Signup() {
   const [user, setUser] = useState({
     name: "",
@@ -17,15 +18,24 @@ export default function Signup() {
   }
    const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
    e.preventDefault();
-   const response = await fetch("http://localhost:5000/api/auth/register",{
-    method: "POST",
-    headers: {
-     "Content-Type": "application/json"
-    },
-    body: JSON.stringify(user)
-   });
-   const data = await response.json();
-   console.log(data);
+   try {
+    validateSignup(user);
+    const response = await fetch("http://localhost:5000/api/auth/register",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(user)
+    });
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || "Something went wrong");
+    }
+    console.log(data);
+  }   catch (error) {
+    console.error(error);
+  }
  }
     return (
       <>
